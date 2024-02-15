@@ -331,9 +331,9 @@ input[type=submit]:hover {
   #id{
     display: none;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical > .table {
-        min-width: 350px;
+      min-width: 300px;
       margin-bottom: 0;
       background-color: transparent;
     }
@@ -355,6 +355,10 @@ input[type=submit]:hover {
       display: block;
       vertical-align: middle;
       text-align: right;
+    }
+    
+    .popup {
+      text-align: left;
     }
     .table-responsive-vertical > .table > tbody > tr > td[data-title]:before {
       content: attr(data-title);
@@ -407,7 +411,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-red > tbody > tr:hover > th {
     background-color: #f9bdbb;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-red > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-red > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -431,7 +435,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-pink > tbody > tr:hover > th {
     background-color: #f8bbd0;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-pink > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-pink > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -455,7 +459,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-purple > tbody > tr:hover > th {
     background-color: #e1bee7;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-purple > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-purple > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -479,7 +483,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-deep-purple > tbody > tr:hover > th {
     background-color: #d1c4e9;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-deep-purple > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-deep-purple > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -503,7 +507,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-indigo > tbody > tr:hover > th {
     background-color: #c5cae9;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-indigo > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-indigo > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -527,7 +531,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-blue > tbody > tr:hover > th {
     background-color: #d0d9ff;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-blue > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-blue > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -551,7 +555,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-light-blue > tbody > tr:hover > th {
     background-color: #b3e5fc;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-light-blue > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-light-blue > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -575,7 +579,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-cyan > tbody > tr:hover > th {
     background-color: #b2ebf2;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-cyan > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-cyan > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -599,7 +603,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-teal > tbody > tr:hover > th {
     background-color: #b2dfdb;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-teal > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-teal > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -623,7 +627,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-green > tbody > tr:hover > th {
     background-color: #a3e9a4;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-green > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-green > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -647,7 +651,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-light-green > tbody > tr:hover > th {
     background-color: #dcedc8;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-light-green > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-light-green > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -671,7 +675,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-lime > tbody > tr:hover > th {
     background-color: #f0f4c3;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-lime > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-lime > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -695,7 +699,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-yellow > tbody > tr:hover > th {
     background-color: #fff9c4;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-yellow > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-yellow > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -719,7 +723,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-amber > tbody > tr:hover > th {
     background-color: #ffecb3;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-amber > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-amber > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -767,7 +771,7 @@ input[type=submit]:hover {
   .table-hover.table-mc-deep-orange > tbody > tr:hover > th {
     background-color: #ffccbc;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1068px) {
     .table-responsive-vertical .table-striped.table-mc-deep-orange > tbody > tr > td,
     .table-responsive-vertical .table-striped.table-mc-deep-orange > tbody > tr:nth-child(odd) {
       background-color: #fff;
@@ -781,5 +785,20 @@ input[type=submit]:hover {
     }
     .table-responsive-vertical .table-hover.table-mc-deep-orange > tbody > tr > td:hover {
       background-color: #ffccbc;
+    }
+  }
+
+  @media only screen and (max-width: 660px) {
+    .projects-section-header p {
+      font-size: 20px;
+    }
+  
+    .popup {
+      width: 90%;
+    }
+  
+    .add-data-btn {
+      width: 120px;
+      font-size: 12px;
     }
   }

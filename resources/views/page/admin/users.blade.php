@@ -104,6 +104,7 @@
 
                                                     <label for="password">Password</label>
                                                     <input type="password" id="password" name="password" value="{{ $user->password }}">
+                                                    {{-- <input type="checkbox" id="showPassword"> Show Password --}}
 
                                                     <label for="status">Status</label>
                                                     <select name="status" id="status">

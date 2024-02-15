@@ -228,3 +228,9 @@ button, a {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+@media only screen and (max-width: 660px) {
+  .app-name {
+    font-size: 16px;
+  }
+}

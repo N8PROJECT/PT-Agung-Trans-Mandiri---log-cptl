@@ -294,3 +294,42 @@ input[type=submit]:hover {
   cursor: pointer;
   background-color: red;
 }
+
+@media only screen and (max-width: 560px) {
+  .projects-section-header p {
+    font-size: 20px;
+  }
+  
+  .delivery-item {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  .popup {
+    margin: 75px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #666;
+    width: 90%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+
+  .add-data-btn {
+    width: 120px;
+    font-size: 12px;
+  }
+
+  .button-delivery {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button-delivery .edit {
+    margin-bottom: 5px;
+    margin-left: -5px;
+  }
+}

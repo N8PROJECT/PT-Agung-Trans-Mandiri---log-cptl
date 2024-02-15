@@ -54,3 +54,31 @@
     padding-right: 24px;
     color: var(--secondary-color);
 }
+
+@media only screen and (max-width: 660px) {
+    .projects-section {
+      padding: 24px; /* Mengurangi padding pada layar lebih kecil */
+    }
+  
+    .projects-section-header {
+      flex-direction: column;
+    }
+    
+    .projects-section-header p {
+      font-size: 20px; /* Mengurangi ukuran font pada layar lebih kecil */
+    }
+  
+    .projects-status {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .item-status {
+      margin-bottom: 10px;
+    }
+  
+    .status-number {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
