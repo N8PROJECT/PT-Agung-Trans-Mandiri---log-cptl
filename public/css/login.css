@@ -13,7 +13,7 @@ body {
   left: 0;
   width: 50%;
   height: 100%;
-  background: #03A9F4;
+  background: #7aa0c4;
 }
 
 #back {
@@ -64,6 +64,31 @@ input {
   margin-top: 0.1em;
 }
 
+.password-input {
+  position: relative;
+}
+
+.password-input input {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 1em;
+  padding: 8px 1px;
+  margin-top: 0.1em;
+  width: calc(100% - 40px); /* Adjust the width according to your design */
+}
+
+.password-input button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 .right {
   width: 50%;
   height: 100%;
@@ -77,6 +102,7 @@ input {
 }
 .right input {
   border-bottom: 1px solid #212121;
+  width: 100%;
 }
 .right input:focus, .right input:active {
   border-color: #673AB7;
@@ -118,50 +144,7 @@ input {
   flex-direction: column;
 }
 
-.checkbox {
-  -webkit-appearance: none;
-  outline: none;
-  background-color: #e3e3e3;
-  border: 1px solid #e3e3e3;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
-  padding: 12px;
-  border-radius: 4px;
-  display: inline-block;
-  position: relative;
-}
-
-.checkbox:focus, .checkbox:checked:focus,
-.checkbox:active, .checkbox:checked:active {
-  border-color: #03A9F4;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.checkbox:checked {
-  outline: none;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
-}
-
-.checkbox:checked:after {
-  outline: none;
-  content: "✓";
-  color: #03A9F4;
-  font-size: 1.4em;
-  font-weight: 900;
-  position: absolute;
-  top: -4px;
-  left: 4px;
-}
-
-.form-checkbox {
-  display: flex;
-  align-items: center;
-}
-.form-checkbox label {
-  margin: 0 6px 0;
-  font-size: 0.72em;
-}
-
-button {
+.login {
   padding: 0.8em 1.2em;
   margin: 0 10px 0 0;
   width: auto;
@@ -178,7 +161,7 @@ button {
   transition: all 0.25s;
   cursor: pointer;
 }
-button.login {
+.login {
   background: #7aa0c4;
 }
 button.off {

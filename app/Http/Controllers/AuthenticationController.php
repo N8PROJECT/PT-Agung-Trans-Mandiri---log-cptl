@@ -22,10 +22,16 @@ class AuthenticationController extends Controller
         }
         if(Auth::attempt($credentials, true)){
             Session::put('mysession', Auth::user()->name);
-            if(Auth::user()->role == 'admin') return redirect('/admin');
-            else if(Auth::user()->role == 'courier') return redirect('/courier');
+            if(Auth::user()->role == 'admin') return redirect('/admin_dashboard');
+            else if(Auth::user()->role == 'courier') return redirect('/courier_dashboard');
             return redirect('/');
         }
         return back()->withErrors("Not Registered", "login");
+    }
+
+    public function logout(){
+        Auth::logout();
+        Session::forget('mysession');
+        return redirect('/');
     }
 }
