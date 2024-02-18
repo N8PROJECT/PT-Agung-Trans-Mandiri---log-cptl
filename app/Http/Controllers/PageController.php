@@ -17,6 +17,8 @@ class PageController extends Controller
         return view('page.login');
     }
 
+    //ADMIN//
+
     public function admin_page(){
         $today = Carbon::now();
         $formattedDate = $today->format('l, d F Y');
@@ -41,15 +43,31 @@ class PageController extends Controller
     }
 
     public function users(){
-        $users = User::all();
+        $users = User::latest();
 
-        return view('page.admin.users', compact('users'));
+        if(request('search')){
+            $users->where('name', 'like', '%'. request('search'). '%');
+        }
+
+        $users = $users->get();
+
+        return view('page.admin.users', [
+            "users" => $users
+        ]);
     }
 
     public function capital_branch(){
-        $capital_branches = CapitalBranch::all();
+        $capital_branches = CapitalBranch::latest();
 
-        return view('page.admin.capital_branch', compact('capital_branches'));
+        if (request('search')) {
+            $capital_branches->where('name', 'like', '%'. request('search').'%');
+        }
+
+        $capital_branches = $capital_branches->get();
+
+        return view('page.admin.capital_branch', [
+            "capital_branches" => $capital_branches
+        ]);
     }
 
     public function report_pengiriman(){
@@ -57,6 +75,8 @@ class PageController extends Controller
         
         return view('page.admin.report-pengiriman', compact('kurir'));
     }
+
+    //KURIR//
 
     public function courier_page(){
         $today = Carbon::now();
@@ -75,11 +95,26 @@ class PageController extends Controller
     }
 
     public function document_delivery(){
-        $deliveries = Delivery::where('user_id', Auth::id())->get();
+        $query = Delivery::where('user_id', Auth::id())->latest();
+    
+        if (request()->has('tanggal_kirim') && request('tanggal_kirim')) {
+            $query->whereDate('tanggal_kirim', request('tanggal_kirim'));
+        }
+    
+        if (request()->has('tanggal_terima') && request('tanggal_terima')) {
+            $query->whereDate('tanggal_terima', request('tanggal_terima'));
+        }
+    
+        if (!request()->has('tanggal_kirim') && !request()->has('tanggal_terima')) {
+            $deliveries = $query->get();
+        } else {
+            $deliveries = $query->get();
+        }
         $branches = CapitalBranch::all();
-
+    
         return view('page.courier.document_delivery', compact('deliveries', 'branches'));
     }
+    
 
     public function rekap_pengiriman(){
         return view('page.courier.rekap_pengiriman');

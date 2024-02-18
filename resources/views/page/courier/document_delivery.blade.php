@@ -16,6 +16,26 @@
                 </button>
             </a>
         </div>
+        <div class="filter-section">
+            <form action="{{ route('document_delivery') }}" method="GET">
+                <label for="">Tanggal Kirim</label>
+                <input type="date" name="tanggal_kirim" placeholder="Filter Tanggal Kirim">
+
+                <label for="">Tanggal Terima</label>
+                <input type="date" name="tanggal_terima" placeholder="Filter Tanggal Terima">
+                
+                <button type="submit">Filter</button>
+            </form>
+        </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div id="popup1" class="overlay">
             <div class="popup">
                 <h2>Add Data</h2>
@@ -23,12 +43,13 @@
                 <div class="content">
                     <form action="/add-delivery" method="post" enctype="multipart/form-data">
                         @csrf
+
                         <label for="area">Area</label>
                         <input type="text" id="area" name="area">
                     
                         <label for="tanggal-kirim">Tanggal Kirim</label>
                         <input type="date" id="tanggal-kirim" name="tanggal_kirim">
-
+                        
                         <label for="pengirim">Pengirim</label>
                         <input type="text" id="pengirim" name="pengirim">
                         

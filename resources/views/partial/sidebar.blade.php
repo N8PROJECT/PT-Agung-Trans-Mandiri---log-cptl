@@ -25,7 +25,7 @@
         <a href="/locations" class="app-sidebar-link {{ request()->is('locations') ? 'active' : '' }}">
             <img class="link-icon" src="{{ asset('asset/office-reader-svgrepo-com.svg') }}" alt="" width="60%">
         </a>
-        <a href="/report-pengiriman-admin" class="app-sidebar-link {{ request()->is('report-pengiriman-admin') ? 'active' : '' }}">
+        <a href="/report_pengiriman" class="app-sidebar-link {{ request()->is('report_pengiriman') ? 'active' : '' }}">
             <img class="link-icon" src="{{ asset('asset/export-svgrepo-com.svg') }}" alt="" width="60%">
         </a>
     @endif

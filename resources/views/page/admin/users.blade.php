@@ -50,6 +50,12 @@
             </div>
         </div>
         <div class="filter-section">
+            <form class="search" action="{{ route('users') }}" method="get">
+                <label for="">Search</label>
+                <input type="text" name="search" placeholder="Cari User...">
+
+                <button type="submit">Filter</button>
+            </form>
             <label for="filter">Filter by Role:</label>
             <select name="filter" id="filter">
                 <option value="all">All</option>
@@ -117,6 +123,45 @@
                                                         <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>admin</option>
                                                         <option value="courier" {{ $user->role === 'courier' ? 'selected' : '' }}>courier</option>
                                                     </select>
+
+                                                    <fieldset>
+                                                        <legend>Permissions</legend>
+                                                        <div class="admin-permission">
+                                                            <h3>Admin</h3>
+                                                            <label>
+                                                                <input type="checkbox" name="permissions[]" value="admin_dashboard" {{ isset($user->permissions) && in_array('admin_dashboard', json_decode($user->permissions, true)) ? 'checked' : '' }}>
+                                                                Admin Dashboard
+                                                            </label>
+                                                            <label>
+                                                                <input type="checkbox" name="permissions[]" value="capital_branch" {{ isset($user->permissions) && in_array('capital_branch', json_decode($user->permissions, true)) ? 'checked' : '' }}>
+                                                                Capital Branch
+                                                            </label>
+                                                            <label>
+                                                                <input type="checkbox" name="permissions[]" value="users" {{ isset($user->permissions) && in_array('users', json_decode($user->permissions, true)) ? 'checked' : '' }}>
+                                                                Users
+                                                            </label>
+                                                            <label>
+                                                                <input type="checkbox" name="permissions[]" value="report_pengiriman" {{ isset($user->permissions) && in_array('capital_branch', json_decode($user->permissions, true)) ? 'checked' : '' }}>
+                                                                Report Pengiriman
+                                                            </label>
+                                                        </div>
+                                                        <div class="courier-permission">
+                                                            <h3>Courier</h3>
+                                                            <label>
+                                                                <input type="checkbox" name="permissions[]" value="courier_dashboard" {{ isset($user->permissions) && in_array('courier_dashboard', json_decode($user->permissions, true)) ? 'checked' : '' }}>
+                                                                Courier Dashboard
+                                                            </label>
+                                                            <label>
+                                                                <input type="checkbox" name="permissions[]" value="document_delivery" {{ isset($user->permissions) && in_array('document_delivery', json_decode($user->permissions, true)) ? 'checked' : '' }}>
+                                                                Document Delivery
+                                                            </label>
+                                                            <label>
+                                                                <input type="checkbox" name="permissions[]" value="rekap_pengiriman" {{ isset($user->permissions) && in_array('rekap_pengiriman', json_decode($user->permissions, true)) ? 'checked' : '' }}>
+                                                                Rekap Pengiriman
+                                                            </label>
+                                                        </div>
+                                                        <!-- Add other pages here -->
+                                                    </fieldset>
 
                                                     <input type="submit" value="Update">
                                                 </form>

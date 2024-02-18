@@ -13,6 +13,14 @@
         <div id="wrapper">
             <p><a class="button" href="#popup1">+ Add Branch</a></p>
         </div>
+        <div class="filter-section">
+            <form class="search" action="{{ route('locations') }}" method="get">
+                <label for="">Search</label>
+                <input type="text" name="search" placeholder="Cari Cabang...">
+
+                <button type="submit">Search</button>
+            </form>
+        </div>
         <div id="popup1" class="overlay">
             <div class="popup">
                 <h2>Add Capital Branch</h2>

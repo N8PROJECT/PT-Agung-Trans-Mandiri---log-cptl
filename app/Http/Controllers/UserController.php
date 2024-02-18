@@ -41,22 +41,22 @@ class UserController extends Controller
             'password' => 'required|string',
             'status' => 'required|in:active,inactive',
             'role' => 'required|in:admin,courier',
+            'permissions' => 'array'
         ]);
 
-        // Ambil data pengguna dari basis data berdasarkan ID yang diberikan
         $user = User::findOrFail($request->id);
 
-        // Perbarui data pengguna
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = bcrypt($request->password); // Pastikan Anda mengenkripsi password sebelum menyimpannya
+        if ($request->has('password')) {
+            $user->password = bcrypt($request->password);
+        }
         $user->status = $request->status;
         $user->role = $request->role;
+        $user->permissions = json_encode($request->permissions);
 
-        // Simpan perubahan
         $user->save();
 
-        // Redirect kembali ke halaman yang sesuai atau berikan respons JSON sesuai kebutuhan Anda
         return redirect()->back()->with('success', 'User updated successfully!');
     }
 

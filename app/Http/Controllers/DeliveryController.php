@@ -26,19 +26,14 @@ class DeliveryController extends Controller
             'tanggal_terima' => 'required',
         ];
         $validator = Validator::make($request->all(), $rules);
-        
-        $tanggal_kirim = $request->tanggal_kirim;
-        $tanggal_terima = $request->tanggal_terima;
-
-        if ($tanggal_terima < $tanggal_kirim) {
-            $validator->errors()->add('tanggal_terima', 'Tanggal terima tidak boleh kurang dari tanggal kirim.');
-        }
 
         $tanggal_kirim = Carbon::parse($request->tanggal_kirim);
+        $tanggal_terima = Carbon::parse($request->tanggal_terima);
+
         $tanggal_hari_ini = Carbon::today();
         $tanggal_maksimum = $tanggal_hari_ini->subDays(1); // H-1
 
-        if ($tanggal_kirim->greaterThanOrEqualTo($tanggal_maksimum)) {
+        if ($tanggal_kirim->greaterThanOrEqualTo($tanggal_maksimum) && $tanggal_terima->greaterThanOrEqualTo($tanggal_kirim)) {
             $delivery = new Delivery();
             $delivery->area = $request->area;
             $delivery->tanggal_kirim = $request->tanggal_kirim;
@@ -51,18 +46,25 @@ class DeliveryController extends Controller
             $delivery->nama_penerima = $request->nama_penerima;
             $delivery->tanggal_terima = $request->tanggal_terima;
             $delivery->user_id = Auth::id();
-
+    
             $delivery->save();
-
+    
             return redirect()->back();
-        } else {
-            $validator->errors()->add('tanggal_kirim', 'Tanggal kirim tidak boleh lebih dari H-1.');
-            return back()->withErrors($validator)->withInput();
+        } 
+        else {
+            if ($tanggal_kirim->lessThan($tanggal_maksimum)) {
+                $validator->errors()->add('tanggal_kirim', 'Tanggal kirim tidak boleh lebih dari H-1.');
+                return redirect()
+                ->back()
+                ->withErrors($validator);
+            }
+            else if ($tanggal_terima->lessThan($tanggal_kirim)) {
+                $validator->errors()->add('tanggal_terima', 'Tanggal terima harus lebih lebih dari tanggal kirim.');
+                return redirect()
+                ->back()
+                ->withErrors($validator);
+            }
         }
-
-        // if($validator->fails()){
-        //     return back()->withErrors($validator)->withInput();
-        // }
     }
 
     public function edit_delivery(Request $request){
