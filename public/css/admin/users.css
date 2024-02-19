@@ -82,8 +82,8 @@
   opacity: 1;
 }
 .popup .content {
-  max-height: 700px;
-  height: auto;
+  max-height: 500px;
+  /* height: auto; */
   overflow: auto;
 }
 
