@@ -85,89 +85,11 @@
                                 <td data-title="Status">{{ $user->status }}</td>
                                 <td data-title="Role">{{ $user->role }}</td>
                                 <td data-title="Edit">
-                                    <div id="wrapper">
-                                        <a href="#popup-{{ $user->id }}">
-                                            <button class="edit">
-                                                Edit
-                                            </button>
-                                        </a>
-                                    </div>
-                                    <div id="popup-{{ $user->id }}" class="overlay">
-                                        <div class="popup">
-                                            <h2>Edit User</h2>
-                                            <a class="close" href="#">&times;</a>
-                                            <div class="content">
-                                                {{-- @dd($user) --}}
-                                                <form action="/edit-user" method="post" enctype="multipart/form-data">
-                                                    @csrf
-                                                    <input id="id" type="text" name="id" value="{{$user->id}}" hidden>
-
-                                                    <label for="name">Name</label>
-                                                    <input type="text" id="name" name="name" value="{{ $user->name }}">
-                                                
-                                                    <label for="email">Email</label>
-                                                    <input type="text" id="email" name="email" value="{{ $user->email }}">
-
-                                                    <label for="password">Password</label>
-                                                    <input type="password" id="password" name="password" value="{{ $user->password }}">
-                                                    {{-- <input type="checkbox" id="showPassword"> Show Password --}}
-
-                                                    <label for="status">Status</label>
-                                                    <select name="status" id="status">
-                                                        <option value="active" {{ $user->status === 'active' ? 'selected' : '' }}>Active</option>
-                                                        <option value="inactive" {{ $user->status === 'inactive' ? 'selected' : '' }}>Inactive</option>
-                                                    </select>
-
-                                                    <label for="role">Role</label>
-                                                    <select name="role" id="role">
-                                                        <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>admin</option>
-                                                        <option value="courier" {{ $user->role === 'courier' ? 'selected' : '' }}>courier</option>
-                                                    </select>
-
-                                                    <fieldset>
-                                                        <legend>Permissions</legend>
-                                                        <div class="admin-permission">
-                                                            <h3>Admin</h3>
-                                                            <label>
-                                                                <input type="checkbox" name="permissions[]" value="admin_dashboard" {{ isset($user->permissions) && in_array('admin_dashboard', json_decode($user->permissions, true)) ? 'checked' : '' }}>
-                                                                Admin Dashboard
-                                                            </label>
-                                                            <label>
-                                                                <input type="checkbox" name="permissions[]" value="capital_branch" {{ isset($user->permissions) && in_array('capital_branch', json_decode($user->permissions, true)) ? 'checked' : '' }}>
-                                                                Capital Branch
-                                                            </label>
-                                                            <label>
-                                                                <input type="checkbox" name="permissions[]" value="users" {{ isset($user->permissions) && in_array('users', json_decode($user->permissions, true)) ? 'checked' : '' }}>
-                                                                Users
-                                                            </label>
-                                                            <label>
-                                                                <input type="checkbox" name="permissions[]" value="report_pengiriman" {{ isset($user->permissions) && in_array('capital_branch', json_decode($user->permissions, true)) ? 'checked' : '' }}>
-                                                                Report Pengiriman
-                                                            </label>
-                                                        </div>
-                                                        <div class="courier-permission">
-                                                            <h3>Courier</h3>
-                                                            <label>
-                                                                <input type="checkbox" name="permissions[]" value="courier_dashboard" {{ isset($user->permissions) && in_array('courier_dashboard', json_decode($user->permissions, true)) ? 'checked' : '' }}>
-                                                                Courier Dashboard
-                                                            </label>
-                                                            <label>
-                                                                <input type="checkbox" name="permissions[]" value="document_delivery" {{ isset($user->permissions) && in_array('document_delivery', json_decode($user->permissions, true)) ? 'checked' : '' }}>
-                                                                Document Delivery
-                                                            </label>
-                                                            <label>
-                                                                <input type="checkbox" name="permissions[]" value="rekap_pengiriman" {{ isset($user->permissions) && in_array('rekap_pengiriman', json_decode($user->permissions, true)) ? 'checked' : '' }}>
-                                                                Rekap Pengiriman
-                                                            </label>
-                                                        </div>
-                                                        <!-- Add other pages here -->
-                                                    </fieldset>
-
-                                                    <input type="submit" value="Update">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a href="edit-user-page/{{ $user->id }}">
+                                        <button class="edit">
+                                            Edit
+                                        </button>
+                                    </a>
                                 </td>
                                 <td data-title="Delete">
                                     <form action="/delete-user/{{ $user->id }}" method="POST">

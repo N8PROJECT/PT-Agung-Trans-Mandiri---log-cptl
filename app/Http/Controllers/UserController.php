@@ -36,27 +36,23 @@ class UserController extends Controller
     public function edit_user(Request $request){
         $request->validate([
             'id' => 'required|exists:users,id',
-            'name' => 'required|string',
-            'email' => 'required|email',
-            'password' => 'required|string',
-            'status' => 'required|in:active,inactive',
-            'role' => 'required|in:admin,courier',
-            'permissions' => 'array'
+            'name' => 'nullable|string',
+            'email' => 'nullable|email',
+            'status' => 'nullable|in:active,inactive',
+            'role' => 'nullable|in:admin,courier',
+            'permissions' => 'nullable|array'
         ]);
-
+    
         $user = User::findOrFail($request->id);
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-        if ($request->has('password')) {
-            $user->password = bcrypt($request->password);
-        }
-        $user->status = $request->status;
-        $user->role = $request->role;
-        $user->permissions = json_encode($request->permissions);
-
+    
+        $user->name = $request->name ?? $user->name;
+        $user->email = $request->email ?? $user->email;
+        $user->status = $request->status ?? $user->status;
+        $user->role = $request->role ?? $user->role;
+        $user->permissions = json_encode($request->permissions ?? json_decode($user->permissions, true));
+    
         $user->save();
-
+    
         return redirect()->back()->with('success', 'User updated successfully!');
     }
 

@@ -21,6 +21,7 @@ class AuthenticationController extends Controller
             Cookie::queue(Cookie::forget('mycookie'));
         }
         if(Auth::attempt($credentials, true)){
+            // dd(Auth::user());
             Session::put('mysession', Auth::user()->name);
             if(Auth::user()->role == 'admin') return redirect('/admin_dashboard');
             else if(Auth::user()->role == 'courier') return redirect('/courier_dashboard');

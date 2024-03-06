@@ -26,9 +26,10 @@ Route::get('/logout',[AuthenticationController::class, 'logout']);
 Route::group(['middleware' => ['adminrole']], function(){
     Route::get('/admin_dashboard', [PageController::class, 'admin_page'])->middleware('check.permissions:admin_dashboard');
 
-    Route::get('/users', [PageController::class, 'users'])->name('users')->middleware('check.permissions:capital_branch');
+    Route::get('/users', [PageController::class, 'users'])->name('users')->middleware('check.permissions:users');
     Route::post('/add-user', [UserController::class, 'add_user']);
-    Route::post('/edit-user', [UserController::class, 'edit_user']);
+    Route::get('/edit-user-page/{id}', [PageController::class, 'edit_user_page']);
+    Route::post('/edit-user/{id}', [UserController::class, 'edit_user']);
     Route::delete('/delete-user/{id}', [UserController::class, 'delete_user']);
 
     Route::get('/locations', [PageController::class, 'capital_branch'])->name('locations')->middleware('check.permissions:capital_branch');

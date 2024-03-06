@@ -56,6 +56,12 @@ class PageController extends Controller
         ]);
     }
 
+    public function edit_user_page($id){
+        $user = User::find($id);
+
+        return view('page.admin.edit-user', compact('user'));
+    } 
+
     public function capital_branch(){
         $capital_branches = CapitalBranch::latest();
 
