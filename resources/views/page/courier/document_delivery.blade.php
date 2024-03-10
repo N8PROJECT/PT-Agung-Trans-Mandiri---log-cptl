@@ -66,6 +66,9 @@
                             @endforeach
                         </select>
 
+                        <label for="nomor_segel">Nomor Segel</label>
+                        <input type="text" id="nomor_segel" name="nomor_segel" required>
+
                         <label for="kota">Kota</label>
                         <input type="text" id="kota" name="kota" required>
 
@@ -87,16 +90,17 @@
             @foreach ($deliveries as $delivery)
             {{-- @dd($delivery->capital_branch->name) --}}
                 <div class="delivery-item">
-                    <div><strong>Area</strong>: {{ $delivery->area }}</div>
                     <div><strong>Tanggal Kirim</strong>: {{ $delivery->tanggal_kirim }}</div>
+                    <div><strong>Tanggal Terima</strong>: {{ $delivery->tanggal_terima }}</div>
+                    <div><strong>Area</strong>: {{ $delivery->area }}</div>
                     <div><strong>Pengirim</strong>: {{ $delivery->pengirim }}</div>
                     <div><strong>Cabang Pengirim</strong>: {{ $delivery->cabang_pengirim }}</div>
                     <div><strong>Tujuan Dokumen</strong>: {{ $delivery->tujuan_dokumen }}</div>
                     <div><strong>Cabang Tujuan</strong>: {{ $delivery->capital_branch->name }}</div>
+                    <div><strong>Nomor Segel</strong>: {{ $delivery->nomor_segel }}</div>
                     <div><strong>Kota</strong>: {{ $delivery->kota }}</div>
                     <div><strong>Jenis Kiriman</strong>: {{ $delivery->jenis_kiriman }}</div>
                     <div><strong>Nama Penerima</strong>: {{ $delivery->nama_penerima }}</div>
-                    <div><strong>Tanggal Terima</strong>: {{ $delivery->tanggal_terima }}</div>
                     <div><strong>Nama Kurir</strong>: {{ $delivery->user->name }}</div>
                     <div class="button-delivery">
                         <div id="wrapper">
@@ -136,6 +140,9 @@
                                                 <option value="{{$branch->id}}">{{$branch->name}}</option>
                                             @endforeach
                                         </select>
+
+                                        <label for="nomor_segel">Nomor Segel</label>
+                                        <input type="text" id="nomor_segel" name="nomor_segel" value="{{ $delivery->nomor_segel }}">
 
                                         <label for="kota">Kota</label>
                                         <input type="text" id="kota" name="kota" value="{{ $delivery->kota }}">

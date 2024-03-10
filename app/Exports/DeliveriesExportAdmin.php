@@ -44,6 +44,7 @@ class DeliveriesExportAdmin implements FromCollection
                         'tujuan_dokumen' => $delivery->tujuan_dokumen,
                         'cabang_tujuan' => $delivery->capital_branch->name,
                         'code_branch' => $delivery->capital_branch->code, // Ambil code_branch dari relasi
+                        'nomor_segel' => $delivery->nomor_segel,
                         'kota' => $delivery->kota,
                         'jenis_kiriman' => $delivery->jenis_kiriman,
                         'nama_penerima' => $delivery->nama_penerima,
@@ -54,7 +55,7 @@ class DeliveriesExportAdmin implements FromCollection
 
         $deliveries->prepend([
             'Area', 'Tanggal Kirim', 'Pengirim', 'Cabang Pengirim', 'Tujuan Dokumen', 
-            'Cabang Tujuan', 'Code Branch', 'Kota', 'Jenis Kiriman', 'Nama Penerima', 
+            'Cabang Tujuan', 'Code Branch', 'Nomor Segel', 'Kota', 'Jenis Kiriman', 'Nama Penerima', 
             'Tanggal Terima', 'Nama Kurir'
         ]);
 

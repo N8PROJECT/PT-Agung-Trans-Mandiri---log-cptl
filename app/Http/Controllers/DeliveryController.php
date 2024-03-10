@@ -20,6 +20,7 @@ class DeliveryController extends Controller
             'cabang_pengirim' => 'required',
             'tujuan_dokumen' => 'required',
             'cabangtujuan' => 'required',
+            'nomor_segel' => 'required',
             'kota' => 'required',
             'jenis_kiriman' => 'required',
             'nama_penerima' => 'required',
@@ -41,6 +42,7 @@ class DeliveryController extends Controller
             $delivery->cabang_pengirim = $request->cabang_pengirim;
             $delivery->tujuan_dokumen = $request->tujuan_dokumen;
             $delivery->capital_branch_id = $request->cabangtujuan;
+            $delivery->nomor_segel = $request->nomor_segel;
             $delivery->kota = $request->kota;
             $delivery->jenis_kiriman = $request->jenis_kiriman;
             $delivery->nama_penerima = $request->nama_penerima;
@@ -75,6 +77,7 @@ class DeliveryController extends Controller
         $delivery->cabang_pengirim = $request->cabang_pengirim != null ? $request->cabang_pengirim : $delivery->cabang_pengirim;
         $delivery->tujuan_dokumen = $request->tujuan_dokumen != null ? $request->tujuan_dokumen : $delivery->tujuan_dokumen;
         $delivery->capital_branch_id = $request->cabangtujuan != null ? $request->cabangtujuan : $delivery->capital_branch_id;
+        $delivery->nomor_segel = $request->nomor_segel != null ? $request->nomor_segel : $delivery->nomor_segel;
         $delivery->kota = $request->kota != null ? $request->kota : $delivery->kota;
         $delivery->jenis_kiriman = $request->jenis_kiriman != null ? $request->jenis_kiriman : $delivery->jenis_kiriman;
         $delivery->nama_penerima = $request->nama_penerima != null ? $request->nama_penerima : $delivery->nama_penerima;
