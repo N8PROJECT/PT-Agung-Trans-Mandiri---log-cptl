@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('tanggal_kirim')->format('d/m/Y');
             $table->string('pengirim');
             $table->string('cabang_pengirim');
-            $table->unsignedBigInteger('nomor_segel')->nullable()->length(7);
+            $table->string('nomor_segel')->length(7);
             $table->string('tujuan_dokumen');
             $table->unsignedBigInteger('capital_branch_id');
             $table->foreign('capital_branch_id')->references('id')->on('capital_branches')->onUpdate('cascade')->onDelete('cascade');

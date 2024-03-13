@@ -54,7 +54,11 @@
                         <input type="text" id="pengirim" name="pengirim">
                         
                         <label for="cabang_pengirim">Cabang Pengirim</label>
-                        <input type="text" id="cabang_pengirim" name="cabang_pengirim" required>
+                        <select name="cabang_pengirim" id="cabang_pengirim">
+                            @foreach($branch as $br)
+                                <option value="{{ $br }}">{{ $br }}</option>
+                            @endforeach
+                        </select>
 
                         <label for="tujuan_dokumen">Tujuan Dokumen</label>
                         <input type="text" id="tujuan_dokumen" name="tujuan_dokumen" required>

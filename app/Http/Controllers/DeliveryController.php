@@ -20,7 +20,7 @@ class DeliveryController extends Controller
             'cabang_pengirim' => 'required',
             'tujuan_dokumen' => 'required',
             'cabangtujuan' => 'required',
-            'nomor_segel' => 'required',
+            'nomor_segel' => 'required|regex:/^0*\d+$/',
             'kota' => 'required',
             'jenis_kiriman' => 'required',
             'nama_penerima' => 'required',

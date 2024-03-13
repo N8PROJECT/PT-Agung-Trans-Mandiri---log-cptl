@@ -117,8 +117,9 @@ class PageController extends Controller
             $deliveries = $query->get();
         }
         $branches = CapitalBranch::all();
+        $branch = CapitalBranch::all()->pluck('name')->toArray();
     
-        return view('page.courier.document_delivery', compact('deliveries', 'branches'));
+        return view('page.courier.document_delivery', compact('deliveries', 'branches', 'branch'));
     }
     
 
