@@ -7,7 +7,7 @@
     @yield('css')
     <link rel="stylesheet" href="{{ asset('css/partial/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/partial/sidebar.css') }}">
-    <title>Document</title>
+    <title>LogBook</title>
 </head>
 <body>
     <div class="app-container">
