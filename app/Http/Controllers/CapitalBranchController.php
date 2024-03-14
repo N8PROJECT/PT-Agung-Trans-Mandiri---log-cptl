@@ -12,7 +12,6 @@ class CapitalBranchController extends Controller
     public function add_branch(Request $request){
         $rules = [
             'name' => 'required',
-            'code' => 'required'
         ];
         $validator = Validator::make($request->all(), $rules);
         if($validator->fails()){
