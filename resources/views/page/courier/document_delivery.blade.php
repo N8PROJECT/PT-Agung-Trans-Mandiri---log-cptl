@@ -60,8 +60,8 @@
                             @endforeach
                         </select>
 
-                        <label for="tujuan_dokumen">Tujuan Dokumen</label>
-                        <input type="text" id="tujuan_dokumen" name="tujuan_dokumen" required>
+                        <label for="tujuan">Tujuan</label>
+                        <input type="text" id="tujuan" name="tujuan" required>
 
                         <label for="cabang_tujuan">Cabang Tujuan</label>
                         <select name="cabangtujuan" id="cabang_tujuan">
@@ -78,6 +78,9 @@
 
                         <label for="jenis_kiriman">Jenis Kiriman</label>
                         <input type="text" id="jenis_kiriman" name="jenis_kiriman" required>
+
+                        <label for="jumlah">Jumlah</label>
+                        <input type="text" id="jumlah" name="jumlah">
 
                         <label for="nama_penerima">Nama Penerima</label>
                         <input type="text" id="nama_penerima" name="nama_penerima" required>
@@ -99,11 +102,12 @@
                     <div><strong>Area</strong>: {{ $delivery->area }}</div>
                     <div><strong>Pengirim</strong>: {{ $delivery->pengirim }}</div>
                     <div><strong>Cabang Pengirim</strong>: {{ $delivery->cabang_pengirim }}</div>
-                    <div><strong>Tujuan Dokumen</strong>: {{ $delivery->tujuan_dokumen }}</div>
+                    <div><strong>Tujuan</strong>: {{ $delivery->tujuan }}</div>
                     <div><strong>Cabang Tujuan</strong>: {{ $delivery->capital_branch->name }}</div>
                     <div><strong>Nomor Segel</strong>: {{ $delivery->nomor_segel }}</div>
                     <div><strong>Kota</strong>: {{ $delivery->kota }}</div>
                     <div><strong>Jenis Kiriman</strong>: {{ $delivery->jenis_kiriman }}</div>
+                    <div><strong>jumlah</strong>: {{ $delivery->jumlah }}</div>
                     <div><strong>Nama Penerima</strong>: {{ $delivery->nama_penerima }}</div>
                     <div><strong>Nama Kurir</strong>: {{ $delivery->user->name }}</div>
                     <div class="button-delivery">
@@ -135,8 +139,8 @@
                                         <label for="cabang_pengirim">Cabang Pengirim</label>
                                         <input type="text" id="cabang_pengirim" name="cabang_pengirim" value="{{ $delivery->cabang_pengirim }}">
 
-                                        <label for="tujuan_dokumen">Tujuan Dokumen</label>
-                                        <input type="text" id="tujuan_dokumen" name="tujuan_dokumen" value="{{ $delivery->tujuan_dokumen }}">
+                                        <label for="tujuan">Tujuan</label>
+                                        <input type="text" id="tujuan" name="tujuan" value="{{ $delivery->tujuan }}">
 
                                         <label for="cabang_tujuan">Cabang Tujuan</label>
                                         <select name="cabangtujuan" id="cabang_tujuan">
@@ -153,6 +157,9 @@
 
                                         <label for="jenis_kiriman">Jenis Kiriman</label>
                                         <input type="text" id="jenis_kiriman" name="jenis_kiriman" value="{{ $delivery->jenis_kiriman }}">
+
+                                        <label for="jumlah">Jumlah</label>
+                                        <input type="text" id="jumlah" name="jumlah" value="{{ $delivery->jumlah }}">
 
                                         <label for="nama_penerima">Nama Penerima</label>
                                         <input type="text" id="nama_penerima" name="nama_penerima" value="{{ $delivery->nama_penerima }}">

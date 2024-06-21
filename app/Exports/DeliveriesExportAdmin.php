@@ -41,12 +41,13 @@ class DeliveriesExportAdmin implements FromCollection
                         'tanggal_kirim' => $delivery->tanggal_kirim,
                         'pengirim' => $delivery->pengirim,
                         'cabang_pengirim' => $delivery->cabang_pengirim,
-                        'tujuan_dokumen' => $delivery->tujuan_dokumen,
+                        'tujuan' => $delivery->tujuan,
                         'cabang_tujuan' => $delivery->capital_branch->name,
                         'code_branch' => $delivery->capital_branch->code, // Ambil code_branch dari relasi
                         'nomor_segel' => $delivery->nomor_segel,
                         'kota' => $delivery->kota,
                         'jenis_kiriman' => $delivery->jenis_kiriman,
+                        'jumlah' => $delivery->jumlah,
                         'nama_penerima' => $delivery->nama_penerima,
                         'tanggal_terima' => $delivery->tanggal_terima,
                         'nama_kurir' => $delivery->user->name
@@ -54,8 +55,8 @@ class DeliveriesExportAdmin implements FromCollection
                 });
 
         $deliveries->prepend([
-            'Area', 'Tanggal Kirim', 'Pengirim', 'Cabang Pengirim', 'Tujuan Dokumen', 
-            'Cabang Tujuan', 'Code Branch', 'Nomor Segel', 'Kota', 'Jenis Kiriman', 'Nama Penerima', 
+            'Area', 'Tanggal Kirim', 'Pengirim', 'Cabang Pengirim', 'Tujuan', 
+            'Cabang Tujuan', 'Code Branch', 'Nomor Segel', 'Kota', 'Jenis Kiriman', 'Jumlah', 'Nama Penerima', 
             'Tanggal Terima', 'Nama Kurir'
         ]);
 

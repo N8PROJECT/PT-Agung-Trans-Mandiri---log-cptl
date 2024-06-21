@@ -40,11 +40,12 @@ class DeliveryController extends Controller
             $delivery->tanggal_kirim = $request->tanggal_kirim;
             $delivery->pengirim = $request->pengirim;
             $delivery->cabang_pengirim = $request->cabang_pengirim;
-            $delivery->tujuan_dokumen = $request->tujuan_dokumen;
+            $delivery->tujuan = $request->tujuan;
             $delivery->capital_branch_id = $request->cabangtujuan;
             $delivery->nomor_segel = $request->nomor_segel;
             $delivery->kota = $request->kota;
             $delivery->jenis_kiriman = $request->jenis_kiriman;
+            $delivery->jumlah = $request->jumlah;
             $delivery->nama_penerima = $request->nama_penerima;
             $delivery->tanggal_terima = $request->tanggal_terima;
             $delivery->user_id = Auth::id();
@@ -75,11 +76,12 @@ class DeliveryController extends Controller
         $delivery->tanggal_kirim = $request->tanggal_kirim != null ? $request->tanggal_kirim : $delivery->tanggal_kirim;
         $delivery->pengirim = $request->pengirim != null ? $request->pengirim : $delivery->pengirim;
         $delivery->cabang_pengirim = $request->cabang_pengirim != null ? $request->cabang_pengirim : $delivery->cabang_pengirim;
-        $delivery->tujuan_dokumen = $request->tujuan_dokumen != null ? $request->tujuan_dokumen : $delivery->tujuan_dokumen;
+        $delivery->tujuan = $request->tujuan != null ? $request->tujuan : $delivery->tujuan;
         $delivery->capital_branch_id = $request->cabangtujuan != null ? $request->cabangtujuan : $delivery->capital_branch_id;
         $delivery->nomor_segel = $request->nomor_segel != null ? $request->nomor_segel : $delivery->nomor_segel;
         $delivery->kota = $request->kota != null ? $request->kota : $delivery->kota;
         $delivery->jenis_kiriman = $request->jenis_kiriman != null ? $request->jenis_kiriman : $delivery->jenis_kiriman;
+        $delivery->jumlah = $request->jumlah != null ? $request->jumlah : $delivery->jumlah;
         $delivery->nama_penerima = $request->nama_penerima != null ? $request->nama_penerima : $delivery->nama_penerima;
         $delivery->tanggal_terima = $request->tanggal_terima != null ? $request->tanggal_terima : $delivery->tanggal_terima;
         $delivery->user_id = $request->namakurir != null ? $request->namakurir : $delivery->user_id;

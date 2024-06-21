@@ -18,11 +18,12 @@ return new class extends Migration
             $table->string('pengirim');
             $table->string('cabang_pengirim');
             $table->string('nomor_segel')->length(7);
-            $table->string('tujuan_dokumen');
+            $table->string('tujuan');
             $table->unsignedBigInteger('capital_branch_id');
             $table->foreign('capital_branch_id')->references('id')->on('capital_branches')->onUpdate('cascade')->onDelete('cascade');
             $table->string('kota');
             $table->string('jenis_kiriman');
+            $table->string('jumlah')->nullable();
             $table->string('nama_penerima');
             $table->date('tanggal_terima')->format('d/m/Y');
             $table->unsignedBigInteger('user_id');

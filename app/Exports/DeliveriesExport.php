@@ -17,6 +17,7 @@ class DeliveriesExport implements FromCollection
     */
     protected $startDate;
     protected $endDate;
+    protected $userId;
 
     public function __construct($startDate, $endDate, $userId)
     {
@@ -29,7 +30,7 @@ class DeliveriesExport implements FromCollection
     {
         $deliveries = Delivery::with('capital_branch')
             ->whereBetween('tanggal_kirim', [$this->startDate, $this->endDate])
-            ->where('user_id', $this->userId) // Filter deliveries by user_id
+            ->where('user_id', $this->userId)
             ->get()
             ->map(function ($delivery) {
                 return [
@@ -37,12 +38,13 @@ class DeliveriesExport implements FromCollection
                     'tanggal_kirim' => $delivery->tanggal_kirim,
                     'pengirim' => $delivery->pengirim,
                     'cabang_pengirim' => $delivery->cabang_pengirim,
-                    'tujuan_dokumen' => $delivery->tujuan_dokumen,
+                    'tujuan' => $delivery->tujuan,
                     'cabang_tujuan' => $delivery->capital_branch->name,
                     'code_branch' => $delivery->capital_branch->code,
                     'nomor_segel' => $delivery->nomor_segel,
                     'kota' => $delivery->kota,
                     'jenis_kiriman' => $delivery->jenis_kiriman,
+                    'jumlah' => $delivery->jumlah,
                     'nama_penerima' => $delivery->nama_penerima,
                     'tanggal_terima' => $delivery->tanggal_terima,
                     'nama_kurir' => $delivery->user->name
@@ -50,8 +52,8 @@ class DeliveriesExport implements FromCollection
             });
 
         $deliveries->prepend([
-            'Area', 'Tanggal Kirim', 'Pengirim', 'Cabang Pengirim', 'Tujuan Dokumen',
-            'Cabang Tujuan', 'Code Branch', 'Nomor Segel', 'Kota', 'Jenis Kiriman', 'Nama Penerima',
+            'Area', 'Tanggal Kirim', 'Pengirim', 'Cabang Pengirim', 'Tujuan',
+            'Cabang Tujuan', 'Code Branch', 'Nomor Segel', 'Kota', 'Jenis Kiriman', 'Jumlah', 'Nama Penerima',
             'Tanggal Terima', 'Nama Kurir'
         ]);
 
@@ -65,7 +67,6 @@ class DeliveriesExport implements FromCollection
     public function styles(Worksheet $sheet)
     {
         return [
-            // Styling baris pertama (header)
             1 => [
                 'font' => ['bold' => true],
                 'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['rgb' => 'FFFF00']]
